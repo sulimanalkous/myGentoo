@@ -1,0 +1,6 @@
+system:
+  locale: ''
+wine:
+  Desktop: false
+  system_winetricks: false
+  version: lutris-7.1-x86_64

@@ -1,0 +1,15 @@
+# Accepting google-chrome license for www-client/google-chrome for version equal or greater than 42.0.2311.90_p1
+>=www-client/google-chrome-42.0.2311.90_p1 google-chrome
+
+# Accepting google-chrome license for any version of www-client/google-chrome
+www-client/google-chrome google-chrome
+
+# Accepting google-chrome license for every www-client package at any version
+www-client/* google-chrome
+
+# Accepting google-chrome license for every package at any version
+*/* google-chrome
+
+# Accepting every license for every package at any version (not a good idea)
+*/*  *
+app-editors/vscode Microsoft-vscode

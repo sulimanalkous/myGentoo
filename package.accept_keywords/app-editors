@@ -1,0 +1,15 @@
+>=app-editors/vscode-1.63.2 ~amd64
+# required by net-vpn/protonvpn-cli (argument)
+=net-vpn/protonvpn-cli-2.2.11-r2 ~amd64
+# required by games-util/lutris (argument)
+=games-util/lutris-0.5.14-r1 ~amd64
+# required by dev-python/moddb-0.10.0::gentoo
+# required by games-util/lutris-0.5.14-r1::gentoo[python_single_target_python3_11]
+# required by games-util/lutris (argument)
+=dev-python/pyrate-limiter-2.10.0 ~amd64
+# required by games-util/lutris-0.5.14-r1::gentoo[python_single_target_python3_11]
+# required by games-util/lutris (argument)
+=dev-python/pypresence-4.3.0 ~amd64
+# required by games-util/lutris-0.5.14-r1::gentoo[python_single_target_python3_11]
+# required by games-util/lutris (argument)
+=dev-python/moddb-0.10.0 ~amd64

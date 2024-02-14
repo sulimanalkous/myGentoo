@@ -1,0 +1,44 @@
+game:
+  arch: win64
+  exe: /home/suliman/Games/ea-app/drive_c/Program Files/Electronic Arts/EA Desktop/EA
+    Desktop/EALauncher.exe
+  prefix: /home/suliman/Games/ea-app
+game_slug: ea-app
+name: EA App
+requires: null
+script:
+  files:
+  - setup:
+      filename: EAappInstaller.exe
+      url: https://origin-a.akamaihd.net/EA-Desktop-Client-Download/installer-releases/EAappInstaller.exe
+  game:
+    arch: win64
+    exe: $GAMEDIR/drive_c/Program Files/Electronic Arts/EA Desktop/EA Desktop/EALauncher.exe
+    prefix: $GAMEDIR
+  installer:
+  - task:
+      arch: win64
+      prefix: /home/suliman/Games/ea-app
+      wine_path: /usr/lib/wine-vanilla-9999/bin/wine
+  - task:
+      app: corefonts
+      arch: win64
+      prefix: /home/suliman/Games/ea-app
+      wine_path: /usr/lib/wine-vanilla-9999/bin/wine
+  - task:
+      app: win10
+      arch: win64
+      prefix: /home/suliman/Games/ea-app
+      wine_path: /usr/lib/wine-vanilla-9999/bin/wine
+  - task:
+      arch: win64
+      env: {}
+      executable: /home/suliman/.cache/lutris/installer/ea-app/setup/EAappInstaller.exe
+      prefix: /home/suliman/Games/ea-app
+      wine_path: /usr/lib/wine-vanilla-9999/bin/wine
+slug: ea-app-standard
+system: {}
+variables: {}
+version: Standard
+wine: {}
+year: 2022

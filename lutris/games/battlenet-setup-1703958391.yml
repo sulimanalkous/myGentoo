@@ -1,0 +1,31 @@
+game:
+  exe: /home/suliman/Games/battlenet/drive_c/Program Files (x86)/Battle.net/Battle.net.exe
+  prefix: /home/suliman/Games/battlenet
+game_slug: battlenet
+name: Battle.net
+requires: null
+script:
+  files:
+  - setupfile: N/A:Select the setup file
+  game:
+    exe: _xXx_AUTO_WIN32_xXx_
+    prefix: $GAMEDIR
+  installer:
+  - task:
+      arch: win64
+      env:
+        LC_ALL: ''
+      executable: /media/sda2/suliman/Downloads/Battle.net-Setup.exe
+      prefix: /home/suliman/Games/battlenet
+      wine_path: /usr/lib/wine-vanilla-9999/bin/wine
+  system:
+    env:
+      LC_ALL: ''
+slug: battlenet-setup
+system:
+  env:
+    LC_ALL: ''
+variables: {}
+version: Setup file
+wine: {}
+year: null

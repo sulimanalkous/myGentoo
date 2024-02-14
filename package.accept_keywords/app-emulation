@@ -1,0 +1,6 @@
+=app-emulation/wine-vanilla-9999 **
+app-emulation/wine-mono ~amd64
+# required by app-emulation/wine-vanilla-9999::gentoo[gecko]
+# required by app-emulation/wine-vanilla (argument)
+=app-emulation/wine-gecko-2.47.4 ~amd64
+=app-emulation/wine-staging-8.21 ~amd64

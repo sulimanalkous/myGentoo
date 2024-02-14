@@ -1,0 +1,6 @@
+# required by wine-staging (argument)
+=app-emulation/wine-staging-8.21 ~amd64
+# required by sys-process/bashtop (argument)
+=sys-process/bashtop-0.9.25 ~amd64
+# required by app-emulation/crossover-bin (argument)
+=app-emulation/crossover-bin-23.6.0 ~amd64

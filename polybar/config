@@ -1,0 +1,293 @@
+[colors]
+black =    #000
+white =    #fff
+grey =     #aaa
+darkgrey = #555
+red =      #f00
+green =    #0f0
+;background = #282A2E
+background = #030712
+background-alt = #373B41
+foreground = #C5C8C6
+primary = #F0C674
+secondary = #8ABEB7
+alert = #A54242
+disabled = #707880
+theme-bottom-border = #66625E
+theme-background = #13101F
+theme-foreground = #A6C1C2
+theme-active-color = #6BB6FA
+theme-border = #3870CE
+
+[bar/mybar]
+modules-left = dwm 
+modules-right = lan pulseaudio xkeyboard
+modules-center = date
+tray-position = right
+font-0 = Noto Sans Mono:style=Regular
+background = ${colors.theme-background}
+foreground = ${colors.theme-foreground}
+width = 100%
+height = 24pt
+;radius = 6
+line-size = 3pt
+underline-size = 2
+underline-color = ${colors.primary}
+;border-size = 4pt
+;border-color = #00000000
+border-bottom-size = 3pt
+border-bottom-color = ${colors.theme-bottom-border}
+padding-left = 0
+padding-right = 0
+module-margin = 0
+separator = |
+separator-foreground = ${colors.disabled}
+cursor-click = pointer
+cursor-scroll = ns-resize
+enable-ipc = true
+wm-restack = generic
+
+
+[module/systray]
+type = internal/tray
+format-margin = 8pt
+tray-spacing = 16pt
+
+[module/xworkspaces]
+type = internal/xworkspaces
+label-active = %name%
+label-active-background = ${colors.theme-background}
+label-active-underline= ${colors.theme-active-color}
+label-active-padding = 1
+label-occupied = %name%
+label-occupied-padding = 1
+label-urgent = %name%
+label-urgent-background = ${colors.theme-background}
+label-urgent-padding = 1
+label-empty = %name%
+label-empty-foreground = ${colors.disabled}
+label-empty-padding = 1
+
+[module/xwindow]
+type = internal/xwindow
+label = %title:0:60:...%
+
+[module/dwm]
+type = internal/dwm
+format = <label-tags> <label-layout> <label-floating> <label-title>
+; Path to dwm socket (default: /tmp/dwm.sock)
+; socket-path = /tmp/dwm.sock
+
+; Left-click to view tag, right-click to toggle tag view
+enable-tags-click = false
+; Scroll to cycle between available tags
+enable-tags-scroll = false
+; If true and enable-tags-scroll = true, scrolling will view all tags regardless if occupied
+tags-scroll-empty = false
+; If true and enable-tags-scroll = true, scrolling will cycle through tags backwards
+tags-scroll-reverse = false
+; If true and enable-tags-scroll = true, wrap active tag when scrolling
+tags-scroll-wrap = false
+; Left-click to set secondary layout, right-click to switch to previous layout
+enable-layout-click = false
+; Scroll to cycle between available layouts
+enable-layout-scroll = false
+; Wrap when scrolling and reaching beginning/end of layouts
+layout-scroll-wrap = false
+; Reverse scroll direction
+layout-scroll-reverse = false
+
+; If enable-layout-click = true, clicking the layout symbol will switch to this layout
+secondary-layout-symbol = [M]
+
+; Separator in between shown tags
+; label-separator = |
+
+; Title of currently focused window
+; Available tokens:
+;   %title%
+label-title = %title%
+label-title-padding = 2
+label-title-foreground = ${colors.primary}
+label-title-maxlen = 30
+
+; Defaults to 'Desktop'
+label-title-default = "Desktop"
+
+; Symbol of current layout
+; Available tokens:
+;   %symbol%
+label-layout = %symbol%
+label-layout-padding = 2
+label-layout-foreground = #000
+label-layout-background = ${colors.primary}
+
+; Text to show when currently focused window is floating
+label-floating = F
+
+; States: focused, unfocused, visible, urgent, empty
+; Available tokens:
+;   %name%
+
+; focused = Selected tag on focused monitor
+label-focused = %name%
+label-focused-background = ${colors.background-alt}
+label-focused-underline= ${colors.primary}
+label-focused-padding = 2
+
+; unfocused = Unselected tag on unselected monitor
+label-unfocused = %name%
+label-unfocused-padding = 2
+
+; visible = Unselected tag, but occupied tag on any monitor
+label-visible = %name%
+label-visible-background = ${self.label-focused-background}
+label-visible-underline = ${self.label-focused-underline}
+label-visible-padding = ${self.label-focused-padding}
+
+; urgent = Unselected tag with window that has urgency hint set
+label-urgent = %name%
+label-urgent-background = ${colors.alert}
+label-urgent-padding = 2
+
+; empty = Unselected and unoccupied tag
+; This can be set to an empty string to hide empty tags
+label-empty = %name%
+label-empty-background = ${colors.primary}
+label-empty-padding = 2
+
+
+[module/date]
+type = internal/date
+;interval = 1
+date = "%d-%h-%y %H:%M %p"
+
+#[module/filesystem]
+#type = internal/fs
+#interval = 60
+#mount-0 = /
+#mount-1 = /tmp
+#mount-2 = /data
+#label-mounted = %{F#0a81f5}%mountpoint%%{F-}: %percentage_used%%
+
+[module/pulseaudio]
+type = internal/pulseaudio
+
+; Sink to be used, if it exists (find using `pacmd list-sinks`, name field)
+; If not, uses default sink
+; sink = alsa_output.pci-0000_12_00.3.analog-stereo
+
+; Use PA_VOLUME_UI_MAX (~153%) if true, or PA_VOLUME_NORM (100%) if false
+; Default: true
+use-ui-max = true
+
+; Interval for volume increase/decrease (in percent points)
+; Default: 5
+interval = 5
+
+; Reverses the increment/decrement on scroll event. Set this to true if you are
+; using natural scrolling option on your touchpad.
+; New in version 3.7.0
+; Default: false
+reverse-scroll = false
+
+[module/lan]
+type = internal/network
+interface = enp6s0
+label-connected = "%ifname%: %local_ip% %local_ip6%"
+;label-disconnected = "%ifname%: not connected | "
+
+[module/cpu]
+type = internal/cpu
+format = <label> <ramp-coreload>
+label = " CPU %percentage%%"
+ramp-coreload-spacing = 1
+ramp-coreload-0 = %{F#0a0}▁%{F-}
+ramp-coreload-1 = %{F#0a0}▂%{F-}
+ramp-coreload-2 = %{F#0a0}▃%{F-}
+ramp-coreload-3 = %{F#0a0}▄%{F-}
+ramp-coreload-4 = %{F#f80}▅%{F-}
+ramp-coreload-5 = %{F#f80}▆%{F-}
+ramp-coreload-6 = %{F#f00}▇%{F-}
+ramp-coreload-7 = %{F#f00}█%{F-}
+
+[module/xkeyboard]
+type = internal/xkeyboard
+
+; List of indicators to ignore
+blacklist-0 = num lock
+blacklist-1 = scroll lock
+; Available tags:
+;   <label-layout> (default)
+;   <label-indicator> (default)
+format = <label-layout> <label-indicator>
+format-spacing = 0
+
+; Available tokens:
+;   %layout%
+;   %name%
+;   %number%
+;   %icon%
+;   %variant% (New in version 3.6.0)
+; Default: %layout%
+label-layout = %name%
+label-layout-padding = 2
+;label-layout-background = #bc99ed
+label-layout-background = ${colors.theme-background}
+label-layout-foreground = ${colors.theme-active-color}
+
+; Available tokens:
+;   %name%
+; Default: %name%
+; @deprecated, use label-indicator-on
+label-indicator = %name%
+
+; layout-icon-[0-9]+ = layout;icon
+; layout-icon-[0-9]+ = layout;variant;icon (New in version 3.6.0)
+; Assign each layout an icon that will be available as %icon% token for the
+; <label-layout> tag.
+; In the first configuration form, the `layout` will try to match %layout%
+; value ignoring the variant
+; In the second configuration form, 
+;     the `layout` will try to match %layout% value and the `variant` matches %variant%.
+;     the `variant` can be empty (layout;;icon) to match against a %layout%
+;                   with an empty %variant%
+;     the `variant` can be the wildcard '_' to match a %layout% and any variant. 
+;         This is equivalent to the first configuration form
+;     the `layout` cannot be empty (;variant;icon)
+;     the `layout` can be the wildcard '_' to match any %layout% with a
+;                  specific %variant%
+;     Do not use the wildcard '_' for both `layout` and `variant`
+layout-icon-default = some-icon
+layout-icon-0 = ch;C
+layout-icon-1 = us;U
+
+; indicator-icon-[0-9]+ = indicator;off icon;on icon
+; Provides the content of the %icon% token in label-indicator-*
+indicator-icon-default = 
+indicator-icon-0 = caps lock;-CL;+CL
+indicator-icon-1 = scroll lock;;+SL
+indicator-icon-2 = num lock;-NL;+NL
+
+; Replaces label-indicator
+; Available tokens:
+;   %name%
+;   %icon%
+; Default: %name%
+label-indicator-on = +%name%
+; Available tokens:
+;   %name%
+;   %icon%
+; Default: (none)
+label-indicator-off = -%name%
+
+; Replaces label-indicator-* if for specific indicators
+; Available tokens:
+;   %name%
+;   %icon%
+label-indicator-on-capslock = 
+label-indicator-off-capslock = 
+label-indicator-on-numlock = 
+label-indicator-off-numlock = 
+label-indicator-on-scrolllock = 
+label-indicator-off-scrolllock = 
